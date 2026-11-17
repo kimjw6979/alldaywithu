@@ -188,7 +188,7 @@
                 badge: 'Namyangju',
                 title: '남양주 북한강  드라이브 코스🚗',
                 desc: '강물을 따라 달리는 여유로운 드라이브',
-                distance: '오류동역 출발 • 약 60km (약 1시간 15분 소요)',
+                distance: '오류동역 출발<br>약 60km (약 1시간 15분 소요)',
                 steps: [
                     {
                         title: '테이블스라운지',
@@ -246,7 +246,7 @@
             document.getElementById('result-badge').innerText = data.badge;
             document.getElementById('result-title').innerText = data.title;
             document.getElementById('result-desc').innerText = data.desc;
-            document.getElementById('result-distance').innerText = data.distance;
+            document.getElementById('result-distance').innerHTML = data.distance;
             
             const locationNames = { 
                 namyangju: '남양주 북한강',
