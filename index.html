@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <title>나와 함께 갈래?</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .screen {
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            width: 100%;
+        }
+        
+        .screen-hidden {
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateY(20px) scale(0.98);
+        }
+        
+        .screen-active {
+            opacity: 1;
+            pointer-events: auto;
+            position: relative;
+            transform: translateY(0) scale(1);
+        }
+
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .grid-item { opacity: 0; }
+        .animate-grid .grid-item {
+            animation: slideUpFade 0.5s ease forwards;
+        }
+
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* 📱 모바일: 스크롤바 숨김 */
+        ::-webkit-scrollbar { width: 0px; }
+
+        /* 💻 PC (640px 이상): 브라우저 우측에 예쁜 핑크색 스크롤바 표시 */
+        @media (min-width: 640px) {
+            ::-webkit-scrollbar { width: 12px; }
+            ::-webkit-scrollbar-track { background: transparent; }
+            ::-webkit-scrollbar-thumb { background: #fbcfe8; border-radius: 10px; border: 3px solid #fdf2f8; }
+            ::-webkit-scrollbar-thumb:hover { background: #f472b6; border-color: #fce7f3; }
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 min-h-[100dvh] flex sm:block items-center justify-center sm:py-12 text-gray-800 overflow-hidden sm:overflow-auto">
+
+    <div class="relative w-full h-[100dvh] sm:h-auto sm:min-h-[700px] max-w-md sm:max-w-3xl lg:max-w-4xl mx-auto bg-white sm:bg-white/80 backdrop-blur-xl sm:rounded-[2.5rem] sm:shadow-2xl sm:border sm:border-white/50 flex flex-col transition-all duration-300">
+        
+        <header class="pt-12 sm:pt-8 pb-4 px-8 text-center z-10 shadow-sm sm:shadow-none bg-white/50 backdrop-blur-md shrink-0 sm:rounded-t-[2.5rem]">
+            <h1 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-400">
+                 ✨너랑 나랑 즐겁고 행복한 추억 만들기✌️
+            </h1>
+        </header>
+
+        <div class="relative flex-grow px-6 sm:px-10 pb-8 overflow-y-auto sm:overflow-visible">
+            
+            <div id="screen-question" class="screen screen-active flex flex-col items-center justify-center min-h-full pt-6 pb-10">
+                
+                <div class="shrink-0 w-24 h-24 sm:w-32 sm:h-32 bg-pink-100 rounded-full flex items-center justify-center mb-6 shadow-inner transition-all">
+                    <span class="text-5xl sm:text-6xl">🚗</span>
+                </div>
+                
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-3 text-center">어디로 가고 싶어?</h2>
+                <p class="text-gray-500 text-sm sm:text-base text-center mb-10 shrink-0">정욱이가 찾아본<br>방문 예정 코스를 보여줍니다!</p>
+                
+                <div class="w-full max-w-md mx-auto grid grid-cols-2 gap-4 shrink-0 px-2">
+                    <button onclick="selectCourse('paju')" class="aspect-square group relative flex flex-col items-center justify-center gap-3 bg-white text-gray-700 font-bold py-5 px-3 rounded-3xl border-2 border-gray-100 shadow-sm hover:border-yellow-300 hover:bg-yellow-50 transform transition-all active:scale-95">
+                        <span class="text-5xl sm:text-6xl mb-2 transition-transform group-hover:scale-110">📚</span>
+                        <span class="text-center text-base sm:text-lg">파주</span>
+                    </button>
+                    <button onclick="selectCourse('namyangju')" class="aspect-square group relative flex flex-col items-center justify-center gap-3 bg-white text-gray-700 font-bold py-5 px-3 rounded-3xl border-2 border-gray-100 shadow-sm hover:border-green-300 hover:bg-green-50 transform transition-all active:scale-95">
+                        <span class="text-5xl sm:text-6xl mb-2 transition-transform group-hover:scale-110">🚗</span>
+                        <span class="text-center text-base sm:text-lg">남양주</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="screen-result" class="screen screen-hidden flex flex-col pt-6 h-full">
+                
+                <div class="text-center mb-8 shrink-0">
+                    <span id="result-badge" class="inline-block px-3 py-1 bg-pink-100 text-pink-600 text-xs sm:text-sm font-bold rounded-full mb-3 uppercase tracking-wider"></span>
+                    <h2 id="result-title" class="text-2xl sm:text-3xl font-bold text-gray-800"></h2>
+                    <p id="result-desc" class="text-gray-500 text-sm sm:text-base mt-2"></p>
+                    
+                    <div class="mt-4 inline-flex items-center justify-center gap-1.5 px-5 py-2.5 bg-white/60 backdrop-blur-sm rounded-full shadow-sm border border-gray-100 text-sm sm:text-base font-semibold text-gray-700">
+                        <span class="text-base sm:text-lg">📍</span>
+                        <span id="result-distance"></span>
+                    </div>
+                </div>
+
+                <div id="grid-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 pb-8 shrink-0">
+                    <!-- Dynamic Grid Cards will be injected here -->
+                </div>
+
+                <div class="mt-auto flex flex-col sm:flex-row gap-4 pb-6 shrink-0 sm:justify-center">
+                    <a id="sms-share-btn" href="#" class="w-full sm:w-auto sm:px-12 py-4 bg-gradient-to-r from-pink-500 to-rose-400 text-white font-bold text-[1.1rem] rounded-2xl shadow-[0_8px_20px_-6px_rgba(236,72,153,0.5)] hover:shadow-[0_12px_25px_-6px_rgba(236,72,153,0.6)] transform transition-all active:scale-95 flex items-center justify-center gap-2">
+                        이 코스로 갈게요! 💌
+                    </a>
+                    
+                    <button onclick="resetApp()" class="w-full sm:w-auto sm:px-8 inline-flex items-center justify-center gap-2 text-sm font-medium text-gray-500 hover:text-pink-500 transition-colors py-4 rounded-2xl hover:bg-pink-50/50 border border-transparent sm:border-gray-100">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                        다른 지역 보기
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const courses = {
+            paju: {
+                badge: 'Paju',
+                title: '파주 대형카페 📚',
+                desc: '넓고 쾌적한 공간에서 즐기는 문화 산책',
+                distance: '오류동역 출발 • 약 38km (약 45분 소요)',
+                steps: [
+                    {
+                        title: '파주 출판단지 지혜의 숲',
+                        description: '수많은 책들로 둘러싸인 거대한 서가에서 책 향기를 느껴봅니다.',
+                        imgSrc: 'https://placehold.co/600x400/fef08a/854d0e?text=Book+City'
+                    },
+                    {
+                        title: '출판단지 둘레길',
+                        description: '독특한 건축물들이 모여있는 출판단지 거리를 가볍게 거닐어 봅니다.',
+                        imgSrc: 'https://placehold.co/600x400/fce7f3/9d174d?text=Walking+Path'
+                    },
+                    {
+                        title: '초대형 베이커리 카페',
+                        description: '압도적인 규모와 예쁜 인테리어를 자랑하는 파주 대형 카페에서 커피를 즐깁니다.',
+                        imgSrc: 'https://placehold.co/600x400/dbeafe/1e3a8a?text=Large+Cafe'
+                    },
+                    {
+                        title: '헤이리 예술마을',
+                        description: '예술가들의 작업실과 갤러리, 박물관이 모여있는 감성 마을 산책.',
+                        imgSrc: 'https://placehold.co/600x400/f3e8ff/7e22ce?text=Heyri+Art'
+                    },
+                    {
+                        title: '헤이리 예술마을',
+                        description: '예술가들의 작업실과 갤러리, 박물관이 모여있는 감성 마을 산책.',
+                        imgSrc: 'https://placehold.co/600x400/f3e8ff/7e22ce?text=Heyri+Art'
+                    },
+                    {
+                        title: '헤이리 예술마을',
+                        description: '예술가들의 작업실과 갤러리, 박물관이 모여있는 감성 마을 산책.',
+                        imgSrc: 'https://placehold.co/600x400/f3e8ff/7e22ce?text=Heyri+Art'
+                    },
+                    {
+                        title: '헤이리 예술마을',
+                        description: '예술가들의 작업실과 갤러리, 박물관이 모여있는 감성 마을 산책.',
+                        imgSrc: 'https://placehold.co/600x400/f3e8ff/7e22ce?text=Heyri+Art'
+                    },
+                    {
+                        title: '헤이리 예술마을',
+                        description: '예술가들의 작업실과 갤러리, 박물관이 모여있는 감성 마을 산책.',
+                        imgSrc: 'https://placehold.co/600x400/f3e8ff/7e22ce?text=Heyri+Art'
+                    }
+                ]
+            },
+            namyangju: {
+                badge: 'Namyangju',
+                title: '남양주 북한강  드라이브 코스🚗',
+                desc: '강물을 따라 달리는 여유로운 드라이브',
+                distance: '오류동역 출발 • 약 60km (약 1시간 15분 소요)',
+                steps: [
+                    {
+                        title: '테이블스라운지',
+                        description: '북한강 풍경과 함께하는<br>맛있는 순간은 여기!.',
+                        imgSrc: 'nam1.jpg'
+                    },
+                    {
+                        title: '녹화',
+                        description: '북한강,<br>"자연의 색으로녹색화 되다."',
+                        imgSrc: 'nam2.jpg'
+                    },
+                    {
+                        title: '두물머리',
+                        description: '추위가 찾아오기전 가을을<br>만끽할 수 있는 마지막 기회.',
+                        imgSrc: 'nam3.jpg'
+                    },
+                    {
+                        title: '두물머리연핫도그',
+                        description: '소문으로만 듣던 두둥!',
+                        imgSrc: 'nam4.jpg'
+                    },
+                    {
+                        title: '남양주 리버나인',
+                        description: '너랑나랑 그림같은<br>액자뷰 카페.',
+                        imgSrc: 'nam5.jpg'
+                    },
+                    {
+                        title: '구하우스 미술관',
+                        description: '예술과 디자인이<br>주는 즐거운 생활공간',
+                        imgSrc: 'nam6.jpg'
+                    },
+                    {
+                        title: '돗가비 불쭈꾸미',
+                        description: '제대로 된 불맛 쭈꾸미를<br>맛보고 싶다면 여기래!',
+                        imgSrc: 'nam7.jpg'
+                    },
+                    {
+                        title: '브리끄',
+                        description: '"한국의 스위스다"<br>이런 얘기로 유명하대!',
+                        imgSrc: 'nam8.jpg'
+                    }
+                ]
+            }
+        };
+
+        const screenQuestion = document.getElementById('screen-question');
+        const screenResult = document.getElementById('screen-result');
+        const gridContainer = document.getElementById('grid-container');
+
+        function selectCourse(choice) {
+            screenQuestion.classList.remove('screen-active');
+            screenQuestion.classList.add('screen-hidden');
+            
+            const data = courses[choice];
+            document.getElementById('result-badge').innerText = data.badge;
+            document.getElementById('result-title').innerText = data.title;
+            document.getElementById('result-desc').innerText = data.desc;
+            document.getElementById('result-distance').innerText = data.distance;
+            
+            const locationNames = { 
+                namyangju: '남양주 북한강',
+                paju: '파주 대형카페'
+            };
+            const smsMessage = `${locationNames[choice]} 코스로 결정했어요! 💌`;
+            document.getElementById('sms-share-btn').href = `sms:?body=${encodeURIComponent(smsMessage)}`;
+
+            gridContainer.innerHTML = '';
+            gridContainer.classList.remove('animate-grid');
+
+            data.steps.forEach((step, index) => {
+                const delay = index * 0.1; 
+                
+                const itemHtml = `
+                    <div class="grid-item flex flex-col bg-white rounded-2xl sm:rounded-3xl shadow-sm hover:shadow-lg border border-gray-100 overflow-hidden transform transition-all duration-300 hover:-translate-y-1.5" style="animation-delay: ${delay}s">
+                        <div class="relative w-full h-28 sm:h-36 lg:h-40 bg-gray-100 group">
+                            <img src="${step.imgSrc}" alt="${step.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-300"></div>
+                        </div>
+                        <div class="p-4 flex-grow flex flex-col bg-white">
+                            <h3 class="text-sm sm:text-base font-bold text-gray-800 mb-1.5 leading-tight shrink-0 group-hover:text-pink-600 transition-colors">${step.title}</h3>
+                            <p class="text-[11px] sm:text-xs text-gray-500 leading-snug line-clamp-2">${step.description}</p>
+                        </div>
+                    </div>
+                `;
+                gridContainer.insertAdjacentHTML('beforeend', itemHtml);
+            });
+
+            setTimeout(() => {
+                screenResult.classList.remove('screen-hidden');
+                screenResult.classList.add('screen-active');
+                
+                if (window.innerWidth >= 640) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+
+                setTimeout(() => {
+                    gridContainer.classList.add('animate-grid');
+                }, 50);
+            }, 300);
+        }
+
+        function resetApp() {
+            screenResult.classList.remove('screen-active');
+            screenResult.classList.add('screen-hidden');
+            
+            setTimeout(() => {
+                screenQuestion.classList.remove('screen-hidden');
+                screenQuestion.classList.add('screen-active');
+                
+                if (window.innerWidth >= 640) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    document.querySelector('.overflow-y-auto').scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }, 400);
+        }
+    </script>
+</body>
+</html>
