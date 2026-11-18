@@ -112,6 +112,13 @@
                         <span class="text-base sm:text-lg">📍</span>
                         <span id="result-distance"></span>
                     </div>
+
+                    <!-- 👇 여기에 네이버 지도 클릭 안내 뱃지를 추가했습니다! -->
+                    <div class="mt-3 text-center animate-pulse">
+                        <span class="inline-flex items-center gap-1 px-4 py-1.5 bg-blue-50 text-blue-500 text-xs sm:text-sm font-semibold rounded-full border border-blue-100">
+                            👆 장소 카드를 누르면 네이버 지도로 연결돼요!
+                        </span>
+                    </div>
                 </div>
 
                 <div id="grid-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 pb-8 shrink-0">
@@ -238,6 +245,12 @@
         const screenResult = document.getElementById('screen-result');
         const gridContainer = document.getElementById('grid-container');
 
+        // 👇 네이버 지도 검색으로 바로 연결되도록 변경했습니다.
+        function searchPlace(query) {
+            const searchUrl = `https://map.naver.com/p/search/${encodeURIComponent(query)}`;
+            window.open(searchUrl, '_blank');
+        }
+
         function selectCourse(choice) {
             screenQuestion.classList.remove('screen-active');
             screenQuestion.classList.add('screen-hidden');
@@ -262,13 +275,16 @@
                 const delay = index * 0.1; 
                 
                 const itemHtml = `
-                    <div class="grid-item flex flex-col bg-white rounded-2xl sm:rounded-3xl shadow-sm hover:shadow-lg border border-gray-100 overflow-hidden transform transition-all duration-300 hover:-translate-y-1.5" style="animation-delay: ${delay}s">
+                    <div class="grid-item flex flex-col bg-white rounded-2xl sm:rounded-3xl shadow-sm hover:shadow-lg border border-gray-100 overflow-hidden transform transition-all duration-300 hover:-translate-y-1.5 cursor-pointer" style="animation-delay: ${delay}s" onclick="searchPlace('${step.title}')">
                         <div class="relative w-full h-28 sm:h-36 lg:h-40 bg-gray-100 group">
                             <img src="${step.imgSrc}" alt="${step.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-300"></div>
                         </div>
                         <div class="p-4 flex-grow flex flex-col bg-white">
-                            <h3 class="text-sm sm:text-base font-bold text-gray-800 mb-1.5 leading-tight shrink-0 group-hover:text-pink-600 transition-colors">${step.title}</h3>
+                            <h3 class="text-sm sm:text-base font-bold text-gray-800 mb-1.5 leading-tight shrink-0 group-hover:text-pink-600 transition-colors flex justify-between items-center">
+                                ${step.title}
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            </h3>
                             <p class="text-[11px] sm:text-xs text-gray-500 leading-snug line-clamp-2">${step.description}</p>
                         </div>
                     </div>
