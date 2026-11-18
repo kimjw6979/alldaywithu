@@ -214,8 +214,8 @@
                         imgSrc: 'nam2.jpg'
                     },
                     {
-                        title: '두물머리',
-                        description: '가을을 만끽할 수 있는<br>마지막 기회',
+                        title: '세미원',
+                        description: '물과 꽃의 정원',
                         imgSrc: 'nam3.jpg'
                     },
                     {
@@ -267,8 +267,8 @@
             document.getElementById('result-distance').innerHTML = data.distance;
             
             const locationNames = { 
-                namyangju: '남양주 북한강',
-                paju: '파주 대형카페'
+                namyangju: '남양주 북한강 드라이브',
+                paju: '파주 출판단지'
             };
             const smsMessage = `${locationNames[choice]} 코스로 결정했어요! 💌`;
             document.getElementById('sms-share-btn').href = `sms:01092906979?body=${encodeURIComponent(smsMessage)}`;
