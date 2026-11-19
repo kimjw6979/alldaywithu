@@ -55,7 +55,6 @@
             overflow: hidden;
         }
 
-        /* 👇 제목이 한 줄을 넘어가면 말줄임표(...) 처리하는 스타일 추가 */
         .line-clamp-1 {
             white-space: nowrap;
             overflow: hidden;
@@ -104,12 +103,12 @@
                     <button onclick="selectCourse('namyangju')" class="aspect-square group relative flex flex-col items-center justify-center gap-3 bg-white text-gray-700 font-bold py-5 px-3 rounded-3xl border-2 border-gray-100 shadow-sm hover:border-green-300 hover:bg-green-50 transform transition-all active:scale-95">
                         <span class="text-5xl sm:text-6xl mb-2 transition-transform group-hover:scale-110">🚗</span>
                         <span class="text-center text-base sm:text-lg">남양주</span>
-                        </button>
-                    <button onclick="selectCourse('namyangju')" class="aspect-square group relative flex flex-col items-center justify-center gap-3 bg-white text-gray-700 font-bold py-5 px-3 rounded-3xl border-2 border-gray-100 shadow-sm hover:border-green-300 hover:bg-green-50 transform transition-all active:scale-95">
+                    </button>
+                    <button onclick="selectCourse('comingsoon')" class="aspect-square group relative flex flex-col items-center justify-center gap-3 bg-white text-gray-700 font-bold py-5 px-3 rounded-3xl border-2 border-gray-100 shadow-sm hover:border-purple-300 hover:bg-purple-50 transform transition-all active:scale-95">
                         <span class="text-5xl sm:text-6xl mb-2 transition-transform group-hover:scale-110">✨</span>
                         <span class="text-center text-base sm:text-lg">comingsoon</span>
-                         </button>
-                    <button onclick="selectCourse('namyangju')" class="aspect-square group relative flex flex-col items-center justify-center gap-3 bg-white text-gray-700 font-bold py-5 px-3 rounded-3xl border-2 border-gray-100 shadow-sm hover:border-green-300 hover:bg-green-50 transform transition-all active:scale-95">
+                    </button>
+                    <button onclick="selectCourse('comingsoon1')" class="aspect-square group relative flex flex-col items-center justify-center gap-3 bg-white text-gray-700 font-bold py-5 px-3 rounded-3xl border-2 border-gray-100 shadow-sm hover:border-pink-300 hover:bg-pink-50 transform transition-all active:scale-95">
                         <span class="text-5xl sm:text-6xl mb-2 transition-transform group-hover:scale-110">✨✨</span>
                         <span class="text-center text-base sm:text-lg">comingsoon1</span>
                     </button>
@@ -250,7 +249,7 @@
                         title: '북한강 리버레인',
                         description: '북한강이 한눈에 펼쳐지는<br>힐링 카페',
                         imgSrc: 'nam8.jpg'
-                     }
+                    }
                 ]
             },
             comingsoon: {
@@ -276,29 +275,29 @@
                     },
                     {
                         title: '000',
-                        description: '000',,
+                        description: '000',
                         imgSrc: 'nam4.jpg'
                     },
                     {
                         title: '000',
-                        description: '000',,
+                        description: '000',
                         imgSrc: 'nam5.jpg'
                     },
                     {
                         title: '000',
-                        description: '000',,
+                        description: '000',
                         imgSrc: 'nam6.jpg'
                     },
                     {
                         title: '000',
-                        description: '000',',
+                        description: '000',
                         imgSrc: 'nam7.jpg'
                     },
                     {
                         title: '000',
                         description: '000',
                         imgSrc: 'nam8.jpg'
-                        }
+                    }
                 ]
             },
             comingsoon1: {
@@ -324,22 +323,22 @@
                     },
                     {
                         title: '000',
-                        description: '000',,
+                        description: '000',
                         imgSrc: 'nam4.jpg'
                     },
                     {
                         title: '000',
-                        description: '000',,
+                        description: '000',
                         imgSrc: 'nam5.jpg'
                     },
                     {
                         title: '000',
-                        description: '000',,
+                        description: '000',
                         imgSrc: 'nam6.jpg'
                     },
                     {
                         title: '000',
-                        description: '000',',
+                        description: '000',
                         imgSrc: 'nam7.jpg'
                     },
                     {
@@ -372,7 +371,9 @@
             
             const locationNames = { 
                 namyangju: '남양주 북한강 드라이브',
-                paju: '책 넘어가는 소리가 들리는 파주'
+                paju: '책 넘어가는 소리가 들리는 파주',
+                comingsoon: 'comingsoon',
+                comingsoon1: 'comingsoon1'
             };
             const smsMessage = `${locationNames[choice]} 코스로 결정했어요! 💌`;
             document.getElementById('sms-share-btn').href = `sms:01092906979?body=${encodeURIComponent(smsMessage)}`;
@@ -390,7 +391,6 @@
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-300"></div>
                         </div>
                         <div class="p-4 flex-grow flex flex-col bg-white overflow-hidden">
-                            <!-- 👇 flex 구조를 유지하되 span 태그에 line-clamp-1 적용하여 한 줄을 넘어가면 ... 처리 -->
                             <h3 class="text-sm sm:text-base font-bold text-gray-800 mb-1.5 leading-tight shrink-0 group-hover:text-pink-600 transition-colors flex justify-between items-center w-full">
                                 <span class="line-clamp-1 flex-grow pr-1" title="${step.title}">${step.title}</span>
                                 <svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
