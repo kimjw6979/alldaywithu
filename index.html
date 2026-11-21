@@ -115,17 +115,17 @@
                     <!-- 👇 나중에 풀 때는 맨 앞의 disabled 단어만 지우면 됩니다 -->
                     <button onclick="selectCourse('gwacheon')" class="aspect-square group relative flex flex-col items-center justify-center gap-3 bg-white text-gray-700 font-bold py-5 px-3 rounded-3xl border-2 border-gray-100 shadow-sm hover:border-pink-300 hover:bg-pink-50 transform transition-all active:scale-95 disabled:opacity-45 disabled:bg-gray-50 disabled:pointer-events-none">
                         <span class="text-5xl sm:text-6xl mb-2 transition-transform group-hover:scale-110">🐎</span>
-                        <span class="text-center text-base sm:text-lg">lucky</span>
+                        <span class="text-center text-base sm:text-lg">LUCKY</span>
                     </button>
+                    <button disabled onclick="selectCourse('jecheon')" class="aspect-square group relative flex flex-col items-center justify-center gap-3 bg-white text-gray-700 font-bold py-5 px-3 rounded-3xl border-2 border-gray-100 shadow-sm hover:border-pink-300 hover:bg-pink-50 transform transition-all active:scale-95 disabled:opacity-45 disabled:bg-gray-50 disabled:pointer-events-none">
+                        <span class="text-5xl sm:text-6xl mb-2 transition-transform group-hover:scale-110">🚠</span>
+                        <span class="text-center text-base sm:text-lg">HEALING</span>
+                        </button>
+                    <button disabled onclick="selectCourse('gangneung')" class="aspect-square group relative flex flex-col items-center justify-center gap-3 bg-white text-gray-700 font-bold py-5 px-3 rounded-3xl border-2 border-gray-100 shadow-sm hover:border-pink-300 hover:bg-pink-50 transform transition-all active:scale-95 disabled:opacity-45 disabled:bg-gray-50 disabled:pointer-events-none">
+                        <span class="text-5xl sm:text-6xl mb-2 transition-transform group-hover:scale-110">🌊</span>
+                        <span class="text-center text-base sm:text-lg">OCEAN</span>
+                        </button>
                     <button disabled onclick="selectCourse('comingsoon1')" class="aspect-square group relative flex flex-col items-center justify-center gap-3 bg-white text-gray-700 font-bold py-5 px-3 rounded-3xl border-2 border-gray-100 shadow-sm hover:border-pink-300 hover:bg-pink-50 transform transition-all active:scale-95 disabled:opacity-45 disabled:bg-gray-50 disabled:pointer-events-none">
-                        <span class="text-5xl sm:text-6xl mb-2 transition-transform group-hover:scale-110">😆</span>
-                        <span class="text-center text-base sm:text-lg">coming</span>
-                        </button>
-                    <button disabled onclick="selectCourse('comingsoon2')" class="aspect-square group relative flex flex-col items-center justify-center gap-3 bg-white text-gray-700 font-bold py-5 px-3 rounded-3xl border-2 border-gray-100 shadow-sm hover:border-pink-300 hover:bg-pink-50 transform transition-all active:scale-95 disabled:opacity-45 disabled:bg-gray-50 disabled:pointer-events-none">
-                        <span class="text-5xl sm:text-6xl mb-2 transition-transform group-hover:scale-110">😆</span>
-                        <span class="text-center text-base sm:text-lg">coming</span>
-                        </button>
-                    <button disabled onclick="selectCourse('comingsoon3')" class="aspect-square group relative flex flex-col items-center justify-center gap-3 bg-white text-gray-700 font-bold py-5 px-3 rounded-3xl border-2 border-gray-100 shadow-sm hover:border-pink-300 hover:bg-pink-50 transform transition-all active:scale-95 disabled:opacity-45 disabled:bg-gray-50 disabled:pointer-events-none">
                         <span class="text-5xl sm:text-6xl mb-2 transition-transform group-hover:scale-110">😆</span>
                         <span class="text-center text-base sm:text-lg">coming</span>
                     </button>
@@ -369,7 +369,7 @@
                 badge: 'GWACHEON',
                 title: '스릴과 여유가 공존하는 하루',
                 desc: '짜릿한 구경부터 감성 충전까지 즐기는 코스',
-                distance: '오류동역 출발<br>약 20km (약 35분 소요)',
+                distance: '오류동역 출발 • 약 20km (약 35분 소요)',
                 steps: [
                     {
                         title: '렛츠런파크 서울',
@@ -413,99 +413,99 @@
                     }
                 ]
             },
-            comingsoon1: {
-                badge: 'test2',
-                title: '000',
-                desc: '000',
+            jecheon: {
+                badge: 'JECHEON',
+                title: '하늘과 호수를 만나는 도시',
+                desc: '복잡한 일상을 벗어나 맑은 공기로 채우는 하',
                 distance: '000 출발<br>약 00km (약 0시간 0분 소요)',
                 steps: [
                     {
-                        title: '000',
+                        title: '청풍호반케이블',
                         description: '000',
-                        imgSrc: 'nam1.jpg'
+                        imgSrc: 'images/jecheon/je1.jpg'
+                    },
+                    {
+                        title: '의림지',
+                        description: '000',
+                        imgSrc: 'images/jecheon/je2.jpg'
+                    },
+                    {
+                        title: '포레스트 리솜',
+                        description: '000',
+                        imgSrc: 'images/jecheon/je3.jpg'
                     },
                     {
                         title: '000',
                         description: '000',
-                        imgSrc: 'nam2.jpg'
+                        imgSrc: 'images/jecheon/je4.jpg'
                     },
                     {
                         title: '000',
                         description: '000',
-                        imgSrc: 'nam3.jpg'
+                        imgSrc: 'images/jecheon/je5.jpg'
                     },
                     {
                         title: '000',
                         description: '000',
-                        imgSrc: 'nam4.jpg'
+                        imgSrc: 'images/jecheon/je6.jpg'
                     },
                     {
                         title: '000',
                         description: '000',
-                        imgSrc: 'nam5.jpg'
+                        imgSrc: 'images/jecheon/je7.jpg'
                     },
                     {
                         title: '000',
                         description: '000',
-                        imgSrc: 'nam6.jpg'
-                    },
-                    {
-                        title: '000',
-                        description: '000',
-                        imgSrc: 'nam7.jpg'
-                    },
-                    {
-                        title: '000',
-                        description: '000',
-                        imgSrc: 'nam8.jpg'
+                        imgSrc: 'images/jecheon/je8.jpg'
                         }
                 ]
             },
-            comingsoon2: {
-                badge: 'test2',
-                title: '000',
-                desc: '000',
+            gangneung: {
+                badge: 'GANGNEUNG',
+                title: '푸른 바다와 커피 향 가득한 도시',
+                desc: '동해 바다와 커피 향이 가득한 여행',
                 distance: '000 출발<br>약 00km (약 0시간 0분 소요)',
                 steps: [
                     {
-                        title: '000',
+                        title: '말차',
                         description: '000',
-                        imgSrc: 'nam1.jpg'
+                        imgSrc: 'images/gangneung/gang1.jpg'
+                    },
+                    {
+                        title: '강릉카페거리',
+                        description: '000',
+                        imgSrc: 'images/gangneung/gang2.jpg'
                     },
                     {
                         title: '000',
                         description: '000',
-                        imgSrc: 'nam2.jpg'
+                        imgSrc: 'images/gangneung/gang3.jpg'
                     },
                     {
                         title: '000',
                         description: '000',
-                        imgSrc: 'nam3.jpg'
+                        imgSrc: 'images/gangneung/gang4.jpg'
                     },
                     {
                         title: '000',
                         description: '000',
-                        imgSrc: 'nam4.jpg'
+                        imgSrc: 'images/gangneung/gang5.jpg'
                     },
                     {
                         title: '000',
                         description: '000',
-                        imgSrc: 'nam5.jpg'
+                        imgSrc: 'images/gangneung/gang6.jpg'
                     },
                     {
                         title: '000',
                         description: '000',
-                        imgSrc: 'nam6.jpg'
+                        imgSrc: 'images/gangneung/gang7.jpg'
                     },
                     {
                         title: '000',
                         description: '000',
-                        imgSrc: 'nam7.jpg'
-                    },
-                    {
-                        title: '000',
-                        description: '000',
-                        imgSrc: 'nam8.jpg'
+                        imgSrc: 'images/gangneung/gang8.jpg'
                         }
                 ]
             },
@@ -584,7 +584,7 @@
                 seochon: '골목골목 예쁜 서울 서촌',
                 suwon: '감성 가득한 수원 행궁동',
                 gwacheon: '짜릿한 어른들의 데이트, 과천',
-                comingsoon1: 'comingsoon1',
+                jecheon: '호수와 숲이 예쁜 힐링 여행, 제천',
                 comingsoon2: 'comingsoon2',
                 comingsoon3: 'comingsoon3'
             };
