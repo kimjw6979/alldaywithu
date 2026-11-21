@@ -113,11 +113,19 @@
                         <span class="text-center text-base sm:text-lg">SUWONI</span>
                     </button>
                     <!-- 👇 나중에 풀 때는 맨 앞의 disabled 단어만 지우면 됩니다 -->
-                    <button disabled onclick="selectCourse('comingsoon1')" class="aspect-square group relative flex flex-col items-center justify-center gap-3 bg-white text-gray-700 font-bold py-5 px-3 rounded-3xl border-2 border-gray-100 shadow-sm hover:border-pink-300 hover:bg-pink-50 transform transition-all active:scale-95 disabled:opacity-45 disabled:bg-gray-50 disabled:pointer-events-none">
-                        <span class="text-5xl sm:text-6xl mb-2 transition-transform group-hover:scale-110">😀</span>
-                        <span class="text-center text-base sm:text-lg">coming</span>
+                    <button onclick="selectCourse('gwacheon')" class="aspect-square group relative flex flex-col items-center justify-center gap-3 bg-white text-gray-700 font-bold py-5 px-3 rounded-3xl border-2 border-gray-100 shadow-sm hover:border-pink-300 hover:bg-pink-50 transform transition-all active:scale-95 disabled:opacity-45 disabled:bg-gray-50 disabled:pointer-events-none">
+                        <span class="text-5xl sm:text-6xl mb-2 transition-transform group-hover:scale-110">🐎</span>
+                        <span class="text-center text-base sm:text-lg">lucky</span>
                     </button>
+                    <button disabled onclick="selectCourse('comingsoon1')" class="aspect-square group relative flex flex-col items-center justify-center gap-3 bg-white text-gray-700 font-bold py-5 px-3 rounded-3xl border-2 border-gray-100 shadow-sm hover:border-pink-300 hover:bg-pink-50 transform transition-all active:scale-95 disabled:opacity-45 disabled:bg-gray-50 disabled:pointer-events-none">
+                        <span class="text-5xl sm:text-6xl mb-2 transition-transform group-hover:scale-110">😆</span>
+                        <span class="text-center text-base sm:text-lg">coming</span>
+                        </button>
                     <button disabled onclick="selectCourse('comingsoon2')" class="aspect-square group relative flex flex-col items-center justify-center gap-3 bg-white text-gray-700 font-bold py-5 px-3 rounded-3xl border-2 border-gray-100 shadow-sm hover:border-pink-300 hover:bg-pink-50 transform transition-all active:scale-95 disabled:opacity-45 disabled:bg-gray-50 disabled:pointer-events-none">
+                        <span class="text-5xl sm:text-6xl mb-2 transition-transform group-hover:scale-110">😆</span>
+                        <span class="text-center text-base sm:text-lg">coming</span>
+                        </button>
+                    <button disabled onclick="selectCourse('comingsoon3')" class="aspect-square group relative flex flex-col items-center justify-center gap-3 bg-white text-gray-700 font-bold py-5 px-3 rounded-3xl border-2 border-gray-100 shadow-sm hover:border-pink-300 hover:bg-pink-50 transform transition-all active:scale-95 disabled:opacity-45 disabled:bg-gray-50 disabled:pointer-events-none">
                         <span class="text-5xl sm:text-6xl mb-2 transition-transform group-hover:scale-110">😆</span>
                         <span class="text-center text-base sm:text-lg">coming</span>
                     </button>
@@ -357,8 +365,56 @@
                     }
                 ]
             },
+            gwacheon: {
+                badge: 'GWACHEON',
+                title: '스릴과 여유가 공존하는 ',
+                desc: '짜릿한 구경부터 감성 충전까지 즐기는 코스',
+                distance: '오류동역 출발<br>약 20km (약 35분 소요)',
+                steps: [
+                    {
+                        title: '렛츠런파크 서울',
+                        description: '오늘의 행운은 누구 편?<br>이색 데이트의 성지',
+                        imgSrc: 'images/suwon/gwa1.jpg'
+                    },
+                    {
+                        title: '서울대공원',
+                        description: '탁 트인 호수와 숲길 따라<br>여유로운 힐링 산책',
+                        imgSrc: 'images/suwon/gwa2.jpg'
+                    },
+                    {
+                        title: '국립현대미술관 과천',
+                        description: '청계산 품은 미술관에서<br>감각적인 예술 산책',
+                        imgSrc: 'images/suwon/gwa3.jpg'
+                    },
+                    {
+                        title: '펄시카페 과천',
+                        description: '포근한 분위기 속에서<br>잠시 쉬어가는 커피 타임',
+                        imgSrc: 'images/suwon/gwa4.jpg'
+                    },
+                    {
+                        title: '엘올리브 과천',
+                        description: '예쁜 정원 뷰와 함께하는<br>로맨틱한 식사 시간',
+                        imgSrc: 'images/suwon/gwa5.jpg'
+                    },
+                    {
+                        title: '공부차파크 베이커리 티하우스',
+                        description: '향긋한 차와 맛있는 빵이<br>어우러진 힐링 티하우스',
+                        imgSrc: 'images/suwon/gwa6.jpg'
+                    },
+                    {
+                        title: '더차돌',
+                        description: '소소한 오리차돌로<br>채우는 보양 한 상',
+                        imgSrc: 'images/suwon/gwa7.jpg'
+                    },
+                    {
+                        title: '제스토',
+                        description: '분위기까지 맛있는<br>젤라또 스팟',
+                        imgSrc: 'images/suwon/gwa8.jpg'
+                    }
+                ]
+            },
             comingsoon1: {
-                badge: 'test1',
+                badge: 'test2',
                 title: '000',
                 desc: '000',
                 distance: '000 출발<br>약 00km (약 0시간 0분 소요)',
@@ -402,10 +458,58 @@
                         title: '000',
                         description: '000',
                         imgSrc: 'nam8.jpg'
-                    }
+                        }
                 ]
             },
             comingsoon2: {
+                badge: 'test2',
+                title: '000',
+                desc: '000',
+                distance: '000 출발<br>약 00km (약 0시간 0분 소요)',
+                steps: [
+                    {
+                        title: '000',
+                        description: '000',
+                        imgSrc: 'nam1.jpg'
+                    },
+                    {
+                        title: '000',
+                        description: '000',
+                        imgSrc: 'nam2.jpg'
+                    },
+                    {
+                        title: '000',
+                        description: '000',
+                        imgSrc: 'nam3.jpg'
+                    },
+                    {
+                        title: '000',
+                        description: '000',
+                        imgSrc: 'nam4.jpg'
+                    },
+                    {
+                        title: '000',
+                        description: '000',
+                        imgSrc: 'nam5.jpg'
+                    },
+                    {
+                        title: '000',
+                        description: '000',
+                        imgSrc: 'nam6.jpg'
+                    },
+                    {
+                        title: '000',
+                        description: '000',
+                        imgSrc: 'nam7.jpg'
+                    },
+                    {
+                        title: '000',
+                        description: '000',
+                        imgSrc: 'nam8.jpg'
+                        }
+                ]
+            },
+            comingsoon3: {
                 badge: 'test2',
                 title: '000',
                 desc: '000',
@@ -479,8 +583,10 @@
                 paju: '책 넘어가는 소리가 들리는 파주',
                 seochon: '골목골목 예쁜 서울 서촌',
                 suwon: '감성 가득한 수원 행궁동',
-                comingsoon1: 'comingsoon1',
+                gwacheon: '짜릿한 어른들의 데이트, 과천',
+                comingsoon1: 'comingsoon1'
                 comingsoon2: 'comingsoon2'
+                comingsoon3: 'comingsoon3'
             };
             const smsMessage = `${locationNames[choice]} 코스로 결정했어요! 💌`;
             document.getElementById('sms-share-btn').href = `sms:01092906979?body=${encodeURIComponent(smsMessage)}`;
